@@ -56,7 +56,6 @@ public class NoiseStore : ScriptableObject {
     if(item.Length != dims.Length) {
       throw new Exception("dimention mismatch");
     }
-
     int ret = 0; 
     for(int i = 0; i < item.Length; i++) {
       ret += item[i] * dims_mul[i];
@@ -94,6 +93,20 @@ public class NoiseStore : ScriptableObject {
       }
     }
     return max;
+  }
+
+  public bool dimentionsConform(NoiseStore ns) {
+    int[] dims2 = ns.getDims();
+    if(dims2.Length != dims.Length) {
+      return false;
+    }
+
+    for(int i = 0; i < dims2.Length; i++) {
+      if(dims2[i] != dims[i]) {
+        return false;
+      }
+    }
+    return true;
   }
 
 }

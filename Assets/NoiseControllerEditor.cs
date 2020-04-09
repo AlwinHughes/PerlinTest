@@ -3,32 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(NoiseViewer))]
-public class NoiseViewerEditor : Editor {
+[CustomEditor(typeof(NoiseController))]
+public class NoiseControllerEditor : Editor {
 
-  private bool ns_fold_out = true;
-  private Editor ns_editor;
+
+  private bool gen_foldout = true;
+  private Editor gen_editor;
+
+  private bool con_foldout = true;
+  private Editor con_editor;
+
+  private NoiseController nc;
+  
 
   public override void OnInspectorGUI() {
     DrawDefaultInspector();
 
-    NoiseViewer nv = (NoiseViewer) target;
+    nc = (NoiseController) target;
 
-    DrawSettingsEditor(nv.noise_store, nv.onNoiseStoreChange, ref ns_fold_out, ref ns_editor);
+    DrawSettingsEditor(nc.noise_con_set,nc.onSettingsChanged , ref con_foldout, ref con_editor);
 
-    if(GUILayout.Button("regenerate grads")){
-      nv.pn.generateGrads();
-      //nv.setNoiseStoreToPN();
-      nv.onNoiseStoreChange();
+    if(GUILayout.Button("refreshNoise")){
+      nc.refreshNoise();
     }
 
-
-    if(GUILayout.Button("Use Perlin")){
-      //nv.setNoiseStoreToPN();
-      nv.onNoiseStoreChange();
+    /*
+    if(GUILayout.Button("view noise")){
+      nc.refreshNoise();
     }
+    */
 
   }
+
+
 
   void DrawSettingsEditor(Object settings, System.Action onSettingsUpdated, ref bool foldout, ref Editor editor)
   {
@@ -53,5 +60,4 @@ public class NoiseViewerEditor : Editor {
       }
     }
   }
-
 }
