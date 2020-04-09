@@ -14,20 +14,6 @@ public class NoiseViewerEditor : Editor {
 
     NoiseViewer nv = (NoiseViewer) target;
 
-    DrawSettingsEditor(nv.noise_store, nv.onNoiseStoreChange, ref ns_fold_out, ref ns_editor);
-
-    if(GUILayout.Button("regenerate grads")){
-      nv.pn.generateGrads();
-      //nv.setNoiseStoreToPN();
-      nv.onNoiseStoreChange();
-    }
-
-
-    if(GUILayout.Button("Use Perlin")){
-      //nv.setNoiseStoreToPN();
-      nv.onNoiseStoreChange();
-    }
-
   }
 
   void DrawSettingsEditor(Object settings, System.Action onSettingsUpdated, ref bool foldout, ref Editor editor)

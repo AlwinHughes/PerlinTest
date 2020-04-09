@@ -13,9 +13,9 @@ public class NoiseControlerSettings : ScriptableObject {
   [Range(0f,10f)]
   public float y_scale;
 
-  [Range(2,100)]
+  [Range(2,200)]
   public int x_res;
-  [Range(2,100)]
+  [Range(2,200)]
   public int y_res;
 
 

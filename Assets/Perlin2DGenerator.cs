@@ -22,7 +22,6 @@ public class Perlin2DGenerator : ScriptableObject, NoiseGenerator {
       f = UnityEngine.Random.Range(0f, 1f);
       grads[i] = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f));
       //grads[i].Normalize();
-
     }
   }
 
@@ -39,9 +38,6 @@ public class Perlin2DGenerator : ScriptableObject, NoiseGenerator {
 
     point = new Vector2(fade(dx), fade(dy));
 
-    //Debug.Log("point: " + point);
-  
-
     float top_left_dot = Vector2.Dot(point, grads[x + width * y]);
     float top_right_dot = Vector2.Dot(point - new Vector2(1,0), grads[x+1 + width * y]);
     float bottom_left_dot = Vector2.Dot(point - new Vector2(0,1), grads[x + width * (y+1)]);
@@ -52,6 +48,7 @@ public class Perlin2DGenerator : ScriptableObject, NoiseGenerator {
 
     return lerp(x1, x2, fade(dy));
   }
+
 
   private float lerp(float a, float b, float t) {
     return b * t + a * (1- t);

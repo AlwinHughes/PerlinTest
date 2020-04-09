@@ -1,7 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
+[Serializable]
 public class NoiseController : MonoBehaviour {
 
   [SerializeField]
@@ -12,12 +13,15 @@ public class NoiseController : MonoBehaviour {
 
   private NoiseViewer viewer;
 
+
   public void OnValidate() {
 
     Debug.Log("Noise Controler: OnValidate");
 
-    generator = new Perlin2DGenerator();
-    generator.newNoise(noise_con_set);
+    if(generator == null) {
+      generator = new RidgeGen2D();
+      generator.newNoise(noise_con_set);
+    }
 
     viewer = GetComponent<NoiseViewer>();
     Debug.Log("is view null: " + viewer == null);
