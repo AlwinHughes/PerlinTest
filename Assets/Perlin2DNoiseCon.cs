@@ -6,7 +6,6 @@ using UnityEditor;
 [Serializable]
 public class Perlin2DNoiseCon : MonoBehaviour, INoiseCon {
 
-
   private bool con_foldout = true;
   public ref bool getFoldout() { return ref con_foldout; }
 
