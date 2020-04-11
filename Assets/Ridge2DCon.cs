@@ -3,9 +3,7 @@ using System;
 using UnityEngine;
 using UnityEditor;
 
-[Serializable]
-public class Perlin2DNoiseCon : MonoBehaviour, INoiseCon {
-
+public class Ridge2DCon : MonoBehaviour, INoiseCon {
 
   private bool con_foldout = true;
   public ref bool getFoldout() { return ref con_foldout; }
@@ -28,7 +26,7 @@ public class Perlin2DNoiseCon : MonoBehaviour, INoiseCon {
     Debug.Log("Noise Controler: OnValidate");
 
     if(generator == null) {
-      generator = new Perlin2DGenerator();
+      generator = new RidgeGen2D();
       generator.newNoise(noise_con_set);
     }
 
@@ -37,7 +35,6 @@ public class Perlin2DNoiseCon : MonoBehaviour, INoiseCon {
     Debug.Log("is view null: " + viewer == null);
     sendNoiseToViewer();
   }
-
 
   public void refreshNoise() {
     generator.newNoise(noise_con_set);
