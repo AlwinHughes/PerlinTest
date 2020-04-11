@@ -14,6 +14,12 @@ public class NoiseViewerEditor : Editor {
 
     NoiseViewer nv = (NoiseViewer) target;
 
+    DrawSettingsEditor(nv.controller.getSettings(), nv.controller.onSettingsChanged, ref nv.controller.getFoldout(), ref nv.controller.getEditor());
+
+    if(GUILayout.Button("refreshNoise")){
+      nv.refreshNoise();
+    }
+
   }
 
   void DrawSettingsEditor(Object settings, System.Action onSettingsUpdated, ref bool foldout, ref Editor editor)

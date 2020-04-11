@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 053d8bfeefdf37fafa9aa6e23644e9dc, type: 3}
-  m_Name: New Noise Controler Settings
+  m_Name: NoiseControllerSettings
   m_EditorClassIdentifier: 
   lock_x_y_scale: 1
-  x_scale: 1.46
-  y_scale: 0
-  x_res: 20
-  y_res: 20
+  x_scale: 2.51
+  y_scale: 1.09
+  x_res: 103
+  y_res: 101

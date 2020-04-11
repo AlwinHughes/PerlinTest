@@ -17,7 +17,7 @@ public class RidgeGen2D : ScriptableObject, NoiseGenerator{
   }
 
   public float sample(float[] arr) {
-    return 1 - Mathf.Abs(perlin.sample(arr));
+    return Mathf.Pow(1 - Mathf.Abs(perlin.sample(arr)),2);
   }
 
   public bool isReady() { return perlin.isReady(); }

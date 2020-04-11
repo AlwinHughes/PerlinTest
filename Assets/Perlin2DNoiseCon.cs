@@ -1,17 +1,16 @@
 ﻿using System.Collections;
 using System;
 using UnityEngine;
+using UnityEditor;
 
 [Serializable]
-public class NoiseController : MonoBehaviour {
+public class Perlin2DNoiseCon : MonoBehaviour, INoiseCon {
 
-  [SerializeField]
-  public NoiseGenerator generator;
 
-  [SerializeField]
-  public NoiseControlerSettings noise_con_set;
-
-  private NoiseViewer viewer;
+  private bool con_foldout = true;
+  public ref bool getFoldout() { return ref con_foldout; }
+  private Editor con_editor;
+  public ref Editor getEditor() { return ref con_editor; }
 
 
   public void OnValidate() {
@@ -19,14 +18,26 @@ public class NoiseController : MonoBehaviour {
     Debug.Log("Noise Controler: OnValidate");
 
     if(generator == null) {
-      generator = new RidgeGen2D();
+      generator = new Perlin2DGenerator();
       generator.newNoise(noise_con_set);
     }
 
     viewer = GetComponent<NoiseViewer>();
+    viewer.setNoiseController(this);
     Debug.Log("is view null: " + viewer == null);
     sendNoiseToViewer();
   }
+
+
+  [SerializeField]
+  public NoiseGenerator generator;
+
+  [SerializeField]
+  public NoiseControlerSettings noise_con_set;
+
+  public NoiseControlerSettings getSettings() { return noise_con_set; }
+
+  private NoiseViewer viewer;
 
   public void refreshNoise() {
     generator.newNoise(noise_con_set);

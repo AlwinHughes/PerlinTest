@@ -11,8 +11,8 @@ public class Perlin2DGenerator : ScriptableObject, NoiseGenerator {
 
   public bool isReady() { return grads != null; }
 
-  public int height = 10;
-  public int width = 10;
+  public int height = 8;
+  public int width = 8;
 
   public void newNoise(NoiseControlerSettings settings) {
     Debug.Log("generating grads");
