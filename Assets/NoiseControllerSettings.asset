@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NoiseControllerSettings
   m_EditorClassIdentifier: 
   lock_x_y_scale: 1
-  x_scale: 2.51
-  y_scale: 1.09
-  x_res: 103
-  y_res: 101
+  x_scale: 4.93
+  y_scale: 1.03
+  x_res: 50
+  y_res: 50

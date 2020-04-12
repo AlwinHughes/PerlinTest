@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053d8bfeefdf37fafa9aa6e23644e9dc, type: 3}
   m_Name: NoiseCon2
   m_EditorClassIdentifier: 
-  lock_x_y_scale: 1
-  x_scale: 4.18
-  y_scale: 1.65
-  x_res: 40
-  y_res: 40
+  lock_x_y_scale: 0
+  x_scale: 4.37
+  y_scale: 3.13
+  x_res: 72
+  y_res: 72
