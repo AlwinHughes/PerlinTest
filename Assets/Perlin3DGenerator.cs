@@ -40,8 +40,8 @@ public class Perlin3DGenerator : ScriptableObject, NoiseGenerator {
     int z = ((int) point.z) % (depth );
     float dz = point.z - Mathf.Floor(point.z);
 
-    point = new Vector3(fade(dx), fade(dy), fade(dz));
-    //point = new Vector3(dx, dy, dz);
+    //point = new Vector3(fade(dx), fade(dy), fade(dz));
+    point = new Vector3(dx, dy, dz);
 
     //top things
 

@@ -19,8 +19,11 @@ public class Ridge3DCon : MonoBehaviour, INoiseCon {
 
   public NoiseControlerSettings getSettings() { return noise_con_set; }
 
-  [Range(0f,10f)]
+  [Range(0f,20f)]
   public float z_slice = 0;
+
+  [Range(0f,10f)]
+  public float z_scale = 1f;
 
   private NoiseViewer viewer;
 
@@ -58,7 +61,7 @@ public class Ridge3DCon : MonoBehaviour, INoiseCon {
     for(int i = 0; i < noise_con_set.x_res; i++) {
       for(int j = 0; j < noise_con_set.y_res; j++) {
 
-        ns.set(new int[] { i,j}, generator.sample(new float[] { i * x_scale, j * y_scale, z_slice}));
+        ns.set(new int[] { i,j}, generator.sample(new float[] { i * x_scale, j * y_scale, z_slice * z_scale}));
 
       }
     }
