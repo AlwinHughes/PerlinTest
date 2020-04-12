@@ -21,8 +21,7 @@ public class Perlin3DGenerator : ScriptableObject, NoiseGenerator {
     float f = 0;
     for(int i = 0; i < width * height * depth; i++) {
       f = UnityEngine.Random.Range(0f, 1f);
-      g
-        rads[i] = new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f));
+      grads[i] = new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f));
       //grads[i].Normalize();
     }
   }
