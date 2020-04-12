@@ -1,16 +1,14 @@
 ﻿using System.Collections;
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu()]
-[Serializable]
-public class RidgeGen2D : ScriptableObject, NoiseGenerator{
+public class RidgeGen3D : ScriptableObject, NoiseGenerator {
 
-  public RidgeGen2D() {
-    perlin = new Perlin2DGenerator();
+  public RidgeGen3D() {
+    perlin = new Perlin3DGenerator();
   }
 
-  private Perlin2DGenerator perlin;
+  private Perlin3DGenerator perlin;
 
   public void newNoise(NoiseControlerSettings settings) {
     perlin.newNoise(settings);
@@ -18,6 +16,10 @@ public class RidgeGen2D : ScriptableObject, NoiseGenerator{
 
   public float sample(float[] arr) {
     return Mathf.Pow(1 - Mathf.Abs(perlin.sample(arr)),2);
+  }
+
+  public float sample(Vector3 point) {
+    return Mathf.Pow(1 - Mathf.Abs(perlin.sample(point)),2);
   }
 
   public bool isReady() { return perlin.isReady(); }
