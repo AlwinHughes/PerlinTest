@@ -15,7 +15,7 @@ public class NoiseViewerEditor : Editor {
 
     GridNoiseViewer nv = (GridNoiseViewer) target;
 
-    DrawSettingsEditor(nv.controller.getSettings(), nv.controller.onSettingsChanged, ref nv.controller.getFoldout(), ref nv.controller.getEditor());
+    DrawSettingsEditor(nv.controller.noise_con_set, nv.controller.onSettingsChanged, ref nv.controller.fold_out, ref nv.controller.editor);
 
     if(GUILayout.Button("refreshNoise")){
       nv.refreshNoise();

@@ -3,31 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class Ridge3DCon : MonoBehaviour, INoiseCon {
-
-  private bool con_foldout = true;
-  public ref bool getFoldout() { return ref con_foldout; }
-
-  private Editor con_editor;
-  public ref Editor getEditor() { return ref con_editor; }
-
-  [SerializeField]
-  public NoiseGenerator generator;
-
-  [SerializeField]
-  public NoiseControlerSettings noise_con_set;
-
-  public NoiseControlerSettings getSettings() { return noise_con_set; }
-
+public class Ridge3DCon : INoiseCon {
   [Range(0f,20f)]
   public float z_slice = 0;
 
   [Range(0f,10f)]
   public float z_scale = 1f;
 
-  private NoiseViewer viewer;
-
-  public void OnValidate() {
+  public override void OnValidate() {
 
     Debug.Log("Noise Controler: OnValidate");
 
@@ -43,16 +26,7 @@ public class Ridge3DCon : MonoBehaviour, INoiseCon {
   }
 
 
-  public void refreshNoise() {
-    generator.newNoise(noise_con_set);
-    sendNoiseToViewer();
-  }
-
-  public void onSettingsChanged() {
-    sendNoiseToViewer();
-  }
-
-  private void sendNoiseToViewer() {
+  protected override void sendNoiseToViewer() {
     NoiseStore ns = new NoiseStore(new int[] {noise_con_set.x_res, noise_con_set.y_res});
 
     float x_scale = noise_con_set.getXScale() / noise_con_set.x_res;

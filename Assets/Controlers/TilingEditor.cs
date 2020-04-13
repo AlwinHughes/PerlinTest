@@ -11,7 +11,7 @@ public class TilingEditor :Editor {
     TilingCon tc = (TilingCon) target;
 
     
-    DrawSettingsEditor((ScriptableObject) tc.generator, tc.onSettingsChanged, ref tc.getFoldout(), ref tc.getEditor());
+    DrawSettingsEditor((ScriptableObject) tc.generator, tc.onSettingsChanged, ref tc.fold_out, ref tc.editor);
 
     /*
     if(GUILayout.Button("refreshNoise")){
