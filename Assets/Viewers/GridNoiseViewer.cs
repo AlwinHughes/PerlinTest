@@ -85,20 +85,6 @@ public class GridNoiseViewer : NoiseViewer {
 
   }
 
-  private float dotProd(float[] a, float[] b) {
-    float ret = 0;
-    for(int i = 0; i < a.Length; i++) {
-      ret = a[i] * b[i];
-    }
-    return ret;
-  }
-
-  /*
-  public override void setNoiseController(INoiseCon controller) {
-   this.controller = controller;
-  }
-  */
-
   public void refreshNoise() {
     controller.refreshNoise();
   }

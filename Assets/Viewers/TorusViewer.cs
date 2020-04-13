@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CylinderNoiseViewer : NoiseViewer {
+public class TorusViewer : NoiseViewer {
 
   private int[] triangles;
   private int[] reverse_triangles;
@@ -11,19 +11,20 @@ public class CylinderNoiseViewer : NoiseViewer {
   [SerializeField]
   private GameObject mesh_obj;
   private MeshFilter mesh_filter;
-  
+
   private GameObject reverse_mesh_obj;
   private MeshFilter reverse_mesh_filter;
 
   [SerializeField]
   public NoiseStore noise_store;
-  public bool ns_fold_out;
 
-  [Range(-2f, 4f)]
-  public float radius_offset;
+  [Range(-2f, 5f)]
+  public float hold_radius = 1f;
+
+  [Range(-2f, 5f)]
+  public float thick_radius = 1f;
 
   public void OnValidate() {
-    Debug.Log("on OnValidate");
     if(mesh_obj == null || reverse_mesh_obj == null) {
       createMesh();
     }
@@ -32,7 +33,6 @@ public class CylinderNoiseViewer : NoiseViewer {
   }
 
   private void createMesh() {
-    //inside mesh
     mesh_obj = new GameObject("mesh");
     mesh_obj.transform.parent = transform;
 
@@ -49,22 +49,14 @@ public class CylinderNoiseViewer : NoiseViewer {
 
     reverse_mesh_filter = reverse_mesh_obj.AddComponent<MeshFilter>();
     reverse_mesh_filter.mesh = new Mesh();
-
-  }
-
-  public override void setNoiseStore(NoiseStore ns) {
-    this.noise_store = ns;
-    constructMesh();
   }
 
   private void constructMesh() {
-
+    Debug.Log("construct mesh");
     if(noise_store == null) {
       Debug.Log("noise store null");
       return;
     }
-    //asuming square and 2d for the moment
-    int res = noise_store.getDims()[0];
 
     verts = new Vector3[noise_store.storeLength()];
 
@@ -72,27 +64,32 @@ public class CylinderNoiseViewer : NoiseViewer {
 
     reverse_triangles = new int[(noise_store.getDims()[0] - 1) * (noise_store.getDims()[1] - 1) *6];
 
-    int vert_index = 0;
+    //theta is always in the same plane. 
+    float theta;
+    //phi rotates to form the shell of the donut
+    float phi;
+    Vector3 r;
+    int vert_index;
     int tri_index = 0;
-    float radius = 0;
 
     for(int i = 0; i < noise_store.getDims()[0]; i++) {
+      theta = 2f * Mathf.PI * i / (noise_store.getDims()[0] - 1f );
+
+      //Debug.Log("theta : " + theta);
+
+      r = new Vector3( hold_radius * Mathf.Sin(theta), 0f, hold_radius * Mathf.Cos(theta));
+
       for(int j = 0; j < noise_store.getDims()[1]; j++) {
 
         vert_index = noise_store.getStoreIndex(new int[] {i,j});
+        phi = 2f * Mathf.PI * j / (noise_store.getDims()[1] - 1f );
 
-        //radius = noise_store.get(new int[] {i,j}) + radius_offset * ( 1f - i / (noise_store.getDims()[0] - 1f ));
-        radius = noise_store.get(new int[] {i,j}) + radius_offset;
-
+        //verts[vert_index] = r + thick_radius * (new Vector3(- Mathf.Cos(phi) * Mathf.Sin(theta), Mathf.Cos(phi), -Mathf.Cos(phi) * Mathf.Cos(theta)));
         verts[vert_index] = new Vector3(
-            i / (noise_store.getDims()[0] - 1f ),
-            radius * Mathf.Sin( 2f * Mathf.PI * j / (noise_store.getDims()[1] - 1f )),
-            radius * Mathf.Cos( 2f * Mathf.PI * j / (noise_store.getDims()[1] - 1f ))
-        );
-
-            /*
-        verts[vert_index] = new Vector3(i / (noise_store.getDims()[0] - 1f ), noise_store.get(new int[] {i,j}), j / (noise_store.getDims()[1] - 1f ));
-        */
+            (hold_radius + (thick_radius + noise_store.get(new int[] {i,j})) * Mathf.Cos(phi)) *  Mathf.Sin(theta),
+            (thick_radius + noise_store.get(new int[] {i,j})) * Mathf.Sin(phi),
+            (hold_radius + (thick_radius + noise_store.get(new int[] {i,j})) * Mathf.Cos(phi)) *  Mathf.Cos(theta)
+            );
 
 
         if(i != (noise_store.getDims()[0] -1) && j != (noise_store.getDims()[1] -1)){
@@ -128,11 +125,14 @@ public class CylinderNoiseViewer : NoiseViewer {
     this.reverse_mesh_filter.sharedMesh.vertices = verts;
     this.reverse_mesh_filter.sharedMesh.triangles = reverse_triangles;
     this.reverse_mesh_filter.sharedMesh.RecalculateNormals();
+  }
 
+  public override void setNoiseStore(NoiseStore ns) {
+    this.noise_store = ns;
+    constructMesh();
   }
 
   public void refreshNoise() {
     controller.refreshNoise();
   }
-
 }

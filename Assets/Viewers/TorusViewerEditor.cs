@@ -2,15 +2,19 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(TilingCon))]
-public class TilingEditor :Editor {
+[CustomEditor(typeof(TorusViewer))]
+public class TorusViewerEditor : Editor {
 
   public override void OnInspectorGUI() {
     DrawDefaultInspector();
 
-    TilingCon tc = (TilingCon) target;
+    TorusViewer nv = (TorusViewer) target;
 
-    DrawSettingsEditor((ScriptableObject) tc.generator, tc.onSettingsChanged, ref tc.fold_out, ref tc.editor);
+    DrawSettingsEditor(nv.controller.noise_con_set, nv.controller.onSettingsChanged, ref nv.controller.fold_out, ref nv.controller.editor);
+
+    if(GUILayout.Button("refreshNoise")){
+      nv.refreshNoise();
+    }
 
   }
 
