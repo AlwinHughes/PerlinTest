@@ -58,9 +58,4 @@ public class Perlin2DGenerator : ScriptableObject, NoiseGenerator {
     return t * t * t * (t * (t * 6 - 15) + 10);
   }
 
-  /*
-  public int[] getDims() {
-  }
-  */
-
 }

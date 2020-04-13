@@ -1,9 +1,8 @@
 ﻿using System.Collections;
-using System;
 using UnityEngine;
 using UnityEditor;
 
-public class Ridge2DCon : MonoBehaviour, INoiseCon {
+public class TileingCon2 : MonoBehaviour, INoiseCon{
 
   private bool con_foldout = true;
   public ref bool getFoldout() { return ref con_foldout; }
@@ -26,7 +25,8 @@ public class Ridge2DCon : MonoBehaviour, INoiseCon {
     Debug.Log("Noise Controler: OnValidate");
 
     if(generator == null) {
-      generator = new RidgeGen2D();
+      //generator = new RidgeGen2D();
+      generator = new Perlin2DGenerator();
       generator.newNoise(noise_con_set);
     }
 
@@ -51,9 +51,15 @@ public class Ridge2DCon : MonoBehaviour, INoiseCon {
     float y_scale = noise_con_set.getYScale() / noise_con_set.y_res;
 
     for(int i = 0; i < noise_con_set.x_res; i++) {
-      for(int j = 0; j < noise_con_set.y_res; j++) {
 
-        ns.set(new int[] { i,j}, generator.sample(new float[] { i * x_scale, j * y_scale}));
+      float y_0 = generator.sample(new float[] { i * x_scale, 0});
+      ns.set(new int[] {i, 0}, y_0);
+
+      for(int j = 1; j < noise_con_set.y_res; j++) {
+
+        float v = generator.sample(new float[] { i * x_scale, j * y_scale}) * (1 - j / (noise_con_set.y_res - 1f)) + (j / (noise_con_set.y_res - 1f)) * y_0;
+
+        ns.set(new int[] { i,j}, v);
 
       }
     }
@@ -61,5 +67,6 @@ public class Ridge2DCon : MonoBehaviour, INoiseCon {
     viewer.setNoiseStore(ns);
 
   }
+
 
 }

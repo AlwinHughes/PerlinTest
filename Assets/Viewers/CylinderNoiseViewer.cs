@@ -81,7 +81,8 @@ public class CylinderNoiseViewer : NoiseViewer {
 
         vert_index = noise_store.getStoreIndex(new int[] {i,j});
 
-        radius = noise_store.get(new int[] {i,j}) + radius_offset * ( 1f - i / (noise_store.getDims()[0] - 1f ));
+        //radius = noise_store.get(new int[] {i,j}) + radius_offset * ( 1f - i / (noise_store.getDims()[0] - 1f ));
+        radius = noise_store.get(new int[] {i,j}) + radius_offset;
 
         verts[vert_index] = new Vector3(
             i / (noise_store.getDims()[0] - 1f ),
