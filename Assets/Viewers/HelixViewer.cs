@@ -21,13 +21,13 @@ public class HelixViewer : NoiseViewer {
   [Range(-20f, 20f)]
   public float hold_radius = 1f;
 
-  [Range(-20f, 20f)]
+  [Range(-100f, 20f)]
   public float thick_radius = 1f;
 
-  [Range(-20f, 20f)]
+  [Range(-100f, 100f)]
   public float y_max = 1f;
 
-  [Range(-20f, 20f)]
+  [Range(-20f, 100f)]
   public float length = 1f;
 
   public void OnValidate() {
