@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TorusViewer : NoiseViewer {
+public class HelixViewer : NoiseViewer {
 
   private int[] triangles;
   private int[] reverse_triangles;
@@ -18,11 +18,17 @@ public class TorusViewer : NoiseViewer {
   [SerializeField]
   public NoiseStore noise_store;
 
-  [Range(-2f, 5f)]
+  [Range(-20f, 20f)]
   public float hold_radius = 1f;
 
-  [Range(-2f, 5f)]
+  [Range(-20f, 20f)]
   public float thick_radius = 1f;
+
+  [Range(-20f, 20f)]
+  public float y_max = 1f;
+
+  [Range(-20f, 20f)]
+  public float length = 1f;
 
   public void OnValidate() {
     if(mesh_obj == null || reverse_mesh_obj == null) {
@@ -73,7 +79,7 @@ public class TorusViewer : NoiseViewer {
     int tri_index = 0;
 
     for(int i = 0; i < noise_store.getDims()[0]; i++) {
-      theta = Mathf.PI * i / (noise_store.getDims()[0] - 1f );
+      theta = length * i / (noise_store.getDims()[0] - 1f );
 
       //Debug.Log("theta : " + theta);
 
@@ -87,7 +93,7 @@ public class TorusViewer : NoiseViewer {
         //verts[vert_index] = r + thick_radius * (new Vector3(- Mathf.Cos(phi) * Mathf.Sin(theta), Mathf.Cos(phi), -Mathf.Cos(phi) * Mathf.Cos(theta)));
         verts[vert_index] = new Vector3(
             (hold_radius + (thick_radius + noise_store.get(new int[] {i,j})) * Mathf.Cos(phi)) *  Mathf.Sin(theta),
-            (thick_radius + noise_store.get(new int[] {i,j})) * Mathf.Sin(phi),
+            (thick_radius + noise_store.get(new int[] {i,j})) * Mathf.Sin(phi) + y_max * i / (noise_store.getDims()[0] - 1f ),
             (hold_radius + (thick_radius + noise_store.get(new int[] {i,j})) * Mathf.Cos(phi)) *  Mathf.Cos(theta)
             );
 
@@ -135,4 +141,8 @@ public class TorusViewer : NoiseViewer {
   public void refreshNoise() {
     controller.refreshNoise();
   }
+
+
+
+
 }

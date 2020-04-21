@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NoiseCon2
   m_EditorClassIdentifier: 
   lock_x_y_scale: 0
-  x_scale: 10
-  y_scale: 5.2
-  x_res: 34
-  y_res: 37
+  x_scale: 1.95
+  y_scale: 8.74
+  x_res: 61
+  y_res: 61

@@ -8,9 +8,9 @@ public class NoiseControlerSettings : ScriptableObject {
 
   public bool lock_x_y_scale = true;
 
-  [Range(0f,10f)]
+  [Range(0f,30f)]
   public float x_scale;
-  [Range(0f,10f)]
+  [Range(0f,30f)]
   public float y_scale;
 
   [Range(2,200)]

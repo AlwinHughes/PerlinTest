@@ -2,8 +2,7 @@
 using UnityEngine;
 using UnityEditor;
 
-public class TileingCon2 : INoiseCon {
-
+public class HelixCon : INoiseCon {
 
   public override void OnValidate() {
     Debug.Log("Noise Controler: OnValidate");
@@ -40,6 +39,5 @@ public class TileingCon2 : INoiseCon {
     viewer.setNoiseStore(ns);
 
   }
-
 
 }
