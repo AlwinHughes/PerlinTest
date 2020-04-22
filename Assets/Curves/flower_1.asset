@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   min: 0
   max: 6.2831855
-  a: 1
+  a: -6.8
+  r: 3.6
+  h: 2.85

@@ -10,9 +10,12 @@ public class CurveViewer : NoiseViewer {
 
   [SerializeField]
   private GameObject mesh_obj;
+  [SerializeField]
   private MeshFilter mesh_filter;
 
+  [SerializeField]
   private GameObject reverse_mesh_obj;
+  [SerializeField]
   private MeshFilter reverse_mesh_filter;
 
   [SerializeField]

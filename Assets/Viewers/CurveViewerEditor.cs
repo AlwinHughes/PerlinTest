@@ -6,7 +6,7 @@ using UnityEditor;
 public class CurveViewerEditor : Editor {
 
   Editor curve_editor;
-  bool curve_foldout;
+  bool curve_foldout = true;
 
   public override void OnInspectorGUI() {
     DrawDefaultInspector();
