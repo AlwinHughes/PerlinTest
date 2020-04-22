@@ -5,7 +5,7 @@ using UnityEngine;
 public class Parabola : ICurve {
 
   //defines a plane that the vector is in
-  public Vector3 normal;
+  //public Vector3 normal;
 
   
 
@@ -14,11 +14,17 @@ public class Parabola : ICurve {
   //unfinished
   
   public override Vector3 pos(float t) {
-    return null;
+    return new Vector3();
   }
 
-  public override Vector3 normal(float t) {
-    return new Vector3(0,1,0);
+  public override Vector3[] all(float t) {
+    return new Vector3[1];
   }
+
+  public override Vector3 tangent(float t) {
+    return new Vector3();
+  }
+
+  
 
 }

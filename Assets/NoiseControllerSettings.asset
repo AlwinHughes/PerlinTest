@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053d8bfeefdf37fafa9aa6e23644e9dc, type: 3}
   m_Name: NoiseControllerSettings
   m_EditorClassIdentifier: 
-  lock_x_y_scale: 1
-  x_scale: 2.2
-  y_scale: 3.38
-  x_res: 50
-  y_res: 50
+  lock_x_y_scale: 0
+  x_scale: 29.1
+  y_scale: 4.4
+  x_res: 200
+  y_res: 181
