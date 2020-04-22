@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: line_1
   m_EditorClassIdentifier: 
   min: 0
-  max: 0
-  start: {x: 0, y: 0, z: 0}
-  stop: {x: 0, y: 0, z: 0}
+  max: 1
+  loop: 0
+  start: {x: 1, y: 0, z: 0}
+  tan: {x: 2, y: 2, z: 2}

@@ -17,7 +17,8 @@ public class FolowCurve : MonoBehaviour {
   // Update is called once per frame
   void Update() {
     t += settings.speed * Time.deltaTime;
-    t = Mathf.Min(settings.curve.max, t);
+    if(!settings.curve.loop) 
+      t = Mathf.Min(settings.curve.max, t);
 
     transform.position = settings.offset + settings.curve.pos(t);
     transform.rotation = Quaternion.LookRotation(settings.curve.tangent(t));

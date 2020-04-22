@@ -29,10 +29,16 @@ public class Helix : ICurve {
   }
 
   public override Vector3 pos(float t) {
+    if(base.loop && t > max) {
+      t = t % max;
+    }
     return new Vector3(Mathf.Sin(t) * a, t * h, Mathf.Cos(t) * b);
   }
 
   public override Vector3 tangent(float t) {
+    if(base.loop && t > max) {
+      t = t % max;
+    }
     return new Vector3(Mathf.Cos(t) * a, h, -Mathf.Sin(t) * b);
   }
 

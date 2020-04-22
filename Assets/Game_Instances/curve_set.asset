@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56fa19d3d671604b7bcbbf2fd23c475d, type: 3}
   m_Name: curve_set
   m_EditorClassIdentifier: 
-  curve: {fileID: 0}
+  curve: {fileID: 11400000, guid: 81456487919d442668d5be45f385ab01, type: 2}
   offset: {x: 0, y: 0, z: 0}
-  speed: 0
+  speed: 0.5

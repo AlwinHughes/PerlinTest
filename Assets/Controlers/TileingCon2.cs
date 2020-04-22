@@ -9,8 +9,8 @@ public class TileingCon2 : INoiseCon {
     Debug.Log("Noise Controler: OnValidate");
 
     if(generator == null) {
-      generator = new RidgeGen2D();
-      //generator = new Perlin2DGenerator();
+      //generator = new RidgeGen2D();
+      generator = new Perlin2DGenerator();
       generator.newNoise(noise_con_set);
     }
 

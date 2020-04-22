@@ -20,4 +20,5 @@ public class Line : ICurve {
   public override Vector3 tangent(float t) {
     return tan;
   }
+
 }

@@ -23,4 +23,6 @@ public abstract class ICurve : ScriptableObject {
     return new Vector3[] {v, u, Vector3.Cross(v,u).normalized }; 
   }
 
+  public bool loop = false;
+
 }

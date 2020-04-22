@@ -29,6 +29,9 @@ public class CurveViewer : NoiseViewer {
     constructMesh();
   }
 
+  [Range(-2f, 2f)]
+  public float r_offset;
+
   [SerializeField]
   public ICurve curve;
 
@@ -88,7 +91,7 @@ public class CurveViewer : NoiseViewer {
 
         phi = 360 * j / (noise_store.getDims()[1] - 1f );
 
-        verts[vert_index] = r + (Quaternion.AngleAxis(phi, vs[1]) * vs[2]) * noise_store.get(new int[] {i,j});
+        verts[vert_index] =  r + (Quaternion.AngleAxis(phi, vs[1]) * vs[2]) * (r_offset + noise_store.get(new int[] {i,j}));
 
         if(i != (noise_store.getDims()[0] -1) && j != (noise_store.getDims()[1] -1)){
 
