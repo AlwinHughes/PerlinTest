@@ -31,13 +31,13 @@ public class Perlin3DGenerator : ScriptableObject, NoiseGenerator {
   }
 
   public float sample(Vector3 point) {
-    int x =  ((int) point.x) % (width );
+    int x =  ((int) point.x) % (width);
     float dx = point.x - Mathf.Floor(point.x);
 
-    int y = ((int) point.y) % (height );
+    int y = ((int) point.y) % (height);
     float dy = point.y - Mathf.Floor(point.y);
     
-    int z = ((int) point.z) % (depth );
+    int z = ((int) point.z) % (depth);
     float dz = point.z - Mathf.Floor(point.z);
 
     //point = new Vector3(fade(dx), fade(dy), fade(dz));

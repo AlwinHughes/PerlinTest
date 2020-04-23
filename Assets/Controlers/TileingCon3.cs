@@ -16,7 +16,7 @@ public class TilingCon3 : INoiseCon {
     sendNoiseToViewer();
   }
 
-  protected override void sendNoiseToViewer() {
+  public override void sendNoiseToViewer() {
 
     NoiseStore ns = new NoiseStore(new int[] {noise_con_set.x_res, noise_con_set.y_res});
 
