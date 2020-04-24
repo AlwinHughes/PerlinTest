@@ -28,17 +28,27 @@ public class TileingCon2 : INoiseCon {
     for(int i = 0; i < noise_con_set.x_res; i++) {
 
       float y_0 = generator.sample(new float[] { i * x_scale, 0});
-      ns.set(new int[] {i, 0}, y_0);
+      //ns.set(new int[] {i, 0}, y_0);
 
-      for(int j = 1; j < noise_con_set.y_res; j++) {
+      for(int j = 0; j < noise_con_set.y_res; j++) {
 
-        float v = generator.sample(new float[] { i * x_scale, j * y_scale}) * (1 - j / (noise_con_set.y_res - 1f)) + (j / (noise_con_set.y_res - 1f)) * y_0;
+        //float v = generator.sample(new float[] { i * x_scale, j * y_scale}) * (1 - j / (noise_con_set.y_res - 1f)) + (j / (noise_con_set.y_res - 1f)) * y_0;
+        float v = lerp(
+            generator.sample(new float[] { i * x_scale, j * y_scale}),
+            y_0,
+            j / (noise_con_set.y_res - 1f)
+        );
+
         ns.set(new int[] { i,j}, v);
       }
     }
 
     viewer.setNoiseStore(ns);
 
+  }
+
+  private float lerp(float a, float b, float t) {
+    return a * (1 - t) + b * t;
   }
 
 
