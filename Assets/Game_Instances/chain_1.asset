@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12efbe49d62e947da65a28d5ceab6c8, type: 3}
   m_Name: chain_1
   m_EditorClassIdentifier: 
+  curves:
+  - {fileID: 11400000, guid: a23e9675abe9e30e3a425e49471b4fed, type: 2}
+  - {fileID: 11400000, guid: 81456487919d442668d5be45f385ab01, type: 2}

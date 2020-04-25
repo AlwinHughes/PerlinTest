@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f73ab907c5d181ebac718ace5aaaf0a, type: 3}
-  m_Name: New Helix
+  m_Name: helix_3
   m_EditorClassIdentifier: 
   min: 0
   max: 6.2831855
-  offset: {x: 0, y: 0, z: 0}
-  rotation: {x: 0, y: 0, z: 0, w: 0}
+  offset: {x: -2.4834309, y: 4.9790416, z: -4.269275}
+  rotation: {x: 0.04305594, y: -0.05212035, z: -0.6713813, w: 0.73802227}
   loop: 0
   a: 2.3
   b: 1

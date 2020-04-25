@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: helix_2
   m_EditorClassIdentifier: 
   min: 0
-  max: 6.2831855
+  max: 3
   offset: {x: 0, y: 0, z: 0}
   rotation: {x: 0, y: 0, z: 0, w: 0}
   loop: 0

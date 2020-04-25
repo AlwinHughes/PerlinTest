@@ -30,4 +30,14 @@ public class NoiseControlerSettings : ScriptableObject {
     return y_scale;
   }
 
+  public NoiseControlerSettings(float x_s, float y_s, int x_r, int y_r) {
+    x_scale = x_s;
+    y_scale = y_s;
+
+    x_res = x_r;
+    y_res = y_r;
+
+    lock_x_y_scale = false;
+  }
+
 }

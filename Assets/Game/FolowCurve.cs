@@ -33,9 +33,6 @@ public class FolowCurve : MonoBehaviour {
     transform.rotation = Quaternion.LookRotation(settings.curve.tangent(t));
 
     if(spin_camer) {
-//Quaternion.AngleAxis(phi
-      //transform.rotation = Quaternion.AngleAxis(spin_speed , tangent) * transform.rotation;
-      //spin_speed += Time.deltaTime;
       
       transform.rotation = Quaternion.AngleAxis(camer_spin_t, tangent) * transform.rotation;
       camer_spin_t += Time.deltaTime * spin_speed;

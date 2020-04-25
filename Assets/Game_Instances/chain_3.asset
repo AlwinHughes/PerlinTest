@@ -9,13 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddbe5af1e67ec16da85c825aa6149a9d, type: 3}
-  m_Name: elipse_2
+  m_Script: {fileID: 11500000, guid: f12efbe49d62e947da65a28d5ceab6c8, type: 3}
+  m_Name: chain_3
   m_EditorClassIdentifier: 
-  min: 0
-  max: 3.1415927
-  offset: {x: -2.283857, y: 5.4494896, z: -2.3356647}
-  rotation: {x: 0, y: 0.12883095, z: 0.9129172, w: 0.38727868}
-  loop: 0
-  a: 3
-  b: 1
+  curves:
+  - {fileID: 11400000, guid: ae19b212a4c297bb7ab21a2f3d73d8d4, type: 2}

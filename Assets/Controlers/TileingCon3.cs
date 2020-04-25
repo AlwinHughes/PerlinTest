@@ -5,6 +5,7 @@ using UnityEngine;
 public class TileingCon3 : INoiseCon {
 
   public override void OnValidate() {
+    Debug.Log("tiling3 validate");
     if(generator == null) {
       //generator = new RidgeGen2D();
       generator = new Perlin2DGenerator();
@@ -17,6 +18,13 @@ public class TileingCon3 : INoiseCon {
   }
 
   public override void sendNoiseToViewer() {
+
+
+    ///Debug.Log("send to viewer");
+    if(noise_con_set == null){
+      //Debug.Log("no settings not sending");
+      return;
+    }
 
     NoiseStore ns = new NoiseStore(new int[] {noise_con_set.x_res, noise_con_set.y_res});
 

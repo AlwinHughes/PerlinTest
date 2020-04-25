@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0aff0e6cc70400577a83aa79ece737de, type: 3}
-  m_Name: New Line
+  m_Name: line_2
   m_EditorClassIdentifier: 
   min: 0
   max: 1
-  offset: {x: 0, y: 0, z: 0}
-  rotation: {x: 0, y: 0, z: 0, w: 0}
+  offset: {x: 0.14112, y: 3, z: -1.9899925}
+  rotation: {x: -0.33859962, y: -0.25188228, z: 0.59048194, w: 0.68792206}
   loop: 0
   start: {x: 0, y: 0, z: 0}
   tan_vec: {x: 2, y: 2, z: 2}

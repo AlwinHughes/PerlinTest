@@ -55,9 +55,9 @@ public class CurveViewer : NoiseViewer {
   }
 
   private void constructMesh() {
-    Debug.Log("construct mesh");
+    //Debug.Log("construct mesh");
     if(noise_store == null) {
-      Debug.Log("noise store null");
+      //Debug.Log("noise store null");
       return;
     }
 
