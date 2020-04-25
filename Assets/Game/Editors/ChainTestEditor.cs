@@ -1,24 +1,19 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(FolowCurve))]
-public class FollowCurveEditor : Editor {
-
-  Editor follow_curve_editor;
-  bool follow_curve_foldout = true;
-
-  Editor curve_editor;
-  bool curve_foldout = true;
+[CustomEditor(typeof(ChainTest))]
+public class ChainTestEditor : Editor {
 
   public override void OnInspectorGUI() {
     DrawDefaultInspector();
 
-    FolowCurve fc = (FolowCurve) target;
+    ChainTest ct = (ChainTest) target;
 
-    DrawSettingsEditor(fc.settings, fc.onSettingsChanged, ref follow_curve_foldout, ref follow_curve_editor);
-
+    if(GUILayout.Button("Re-Draw objects")){
+      ct.OnValidate();
+    }
+    
   }
 
 
@@ -45,7 +40,5 @@ public class FollowCurveEditor : Editor {
       }
     }
   }
-
-
 
 }

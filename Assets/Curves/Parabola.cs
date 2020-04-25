@@ -13,7 +13,7 @@ public class Parabola : ICurve {
   }
   //unfinished
   
-  public override Vector3 pos(float t) {
+  protected override Vector3 pos(float t) {
     return new Vector3();
   }
 
@@ -21,7 +21,7 @@ public class Parabola : ICurve {
     return new Vector3[1];
   }
 
-  public override Vector3 tangent(float t) {
+  protected override Vector3 tan(float t) {
     return new Vector3();
   }
 

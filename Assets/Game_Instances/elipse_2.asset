@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 053d8bfeefdf37fafa9aa6e23644e9dc, type: 3}
-  m_Name: NoiseCon2
+  m_Script: {fileID: 11500000, guid: ddbe5af1e67ec16da85c825aa6149a9d, type: 3}
+  m_Name: New Elipse
   m_EditorClassIdentifier: 
-  lock_x_y_scale: 0
-  x_scale: 19.3
-  y_scale: 19.6
-  x_res: 119
-  y_res: 37
+  min: 0
+  max: 3.1415927
+  offset: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: 0, z: 0, w: 0}
+  loop: 0
+  a: 3
+  b: 1

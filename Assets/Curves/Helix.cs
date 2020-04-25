@@ -28,26 +28,18 @@ public class Helix : ICurve {
     this.h = h;
   }
 
-  public override Vector3 pos(float t) {
+  protected override Vector3 pos(float t) {
     if(base.loop && t > max) {
       t = t % max;
     }
     return new Vector3(Mathf.Sin(t) * a, t * h, Mathf.Cos(t) * b);
   }
 
-  public override Vector3 tangent(float t) {
+  protected override Vector3 tan(float t) {
     if(base.loop && t > max) {
       t = t % max;
     }
     return new Vector3(Mathf.Cos(t) * a, h, -Mathf.Sin(t) * b);
-  }
-
-
-  public override Vector3[] all(float t) {
-    Vector3 v = pos(t);
-    Vector3 u = tangent(t);
-
-    return new Vector3[] {v, u, Vector3.Cross(v,u).normalized }; 
   }
 
 

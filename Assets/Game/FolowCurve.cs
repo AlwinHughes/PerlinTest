@@ -17,7 +17,7 @@ public class FolowCurve : MonoBehaviour {
   public CurveFolowSet settings;
 
   void Start() {
-    transform.position = settings.curve.pos(t);
+    transform.position = settings.curve.position(t);
     transform.rotation = Quaternion.LookRotation(settings.curve.tangent(t));
   }
 
@@ -29,7 +29,7 @@ public class FolowCurve : MonoBehaviour {
 
     Vector3 tangent = settings.curve.tangent(t);
 
-    transform.position = settings.offset + settings.curve.pos(t) - (settings.tangent_offset * tangent);
+    transform.position = settings.offset + settings.curve.position(t) - (settings.tangent_offset * tangent);
     transform.rotation = Quaternion.LookRotation(settings.curve.tangent(t));
 
     if(spin_camer) {

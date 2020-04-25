@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curve: {fileID: 11400000, guid: 81456487919d442668d5be45f385ab01, type: 2}
   offset: {x: 0, y: 0, z: 0}
-  speed: 0.5
+  tangent_offset: 0.2
+  speed: 0.7

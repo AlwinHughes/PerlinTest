@@ -21,7 +21,7 @@ public class Flower : ICurve {
   public float h = 1f;
 
 
-  public override Vector3 pos(float t) {
+  protected override Vector3 pos(float t) {
     //goes up then down
     //return r * new  Vector3(Mathf.Sin(t * a) * Mathf.Sin(t), h * Mathf.Sin(0.5f * t), Mathf.Sin(a * t) * Mathf.Cos(t));
     
@@ -30,7 +30,7 @@ public class Flower : ICurve {
     return r * new  Vector3(Mathf.Sin(t * a) * Mathf.Sin(t), h * t, Mathf.Sin(a * t) * Mathf.Cos(t));
   }
 
-  public override Vector3 tangent(float t) {
+  protected override Vector3 tan(float t) {
     return r * new Vector3( 
         a * Mathf.Cos(a * t) * Mathf.Sin(t) + Mathf.Cos(t) * Mathf.Sin(t), 
         h,

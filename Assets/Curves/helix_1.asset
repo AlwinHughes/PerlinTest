@@ -15,6 +15,6 @@ MonoBehaviour:
   min: 0
   max: 6.2831855
   loop: 1
-  a: 1.4
-  b: 2.8
-  h: 0
+  a: 2.5
+  b: 3
+  h: 1
