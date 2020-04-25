@@ -8,7 +8,7 @@ public class CurveChain : ScriptableObject {
   [SerializeField]
   private List<ICurve> curves = new List<ICurve>();
 
-  public CurveChain() { }
+  public CurveChain() {}
 
   public ICurve getCurve(int i) {
     if(i < curves.Count) {
@@ -23,6 +23,31 @@ public class CurveChain : ScriptableObject {
 
   public void addCurve(ICurve c) {
     curves.Add(c);
+  }
+
+  public Vector3 position(float t) {
+    float acc = 0f;
+    for(int i = 0; i < curves.Count; i++) {
+      if(t > curves[i].min && t < acc + curves[i].max) {
+        return curves[i].position(t - acc);
+      }
+      acc += curves[i].max;
+    }
+    //after the end of the curve
+    return new Vector3();
+  }
+
+  public Vector3 tangent(float t) {
+    float acc = 0f;
+    for(int i = 0; i < curves.Count; i++) {
+      if(t > curves[i].min && t < acc + curves[i].max) {
+        return curves[i].tangent(t - acc);
+      }
+      acc += curves[i].max;
+    }
+
+    //after the end of the curve
+    return new Vector3();
   }
 
   //ensures that each of the curves starts where the last one ends

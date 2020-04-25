@@ -9,7 +9,7 @@ public abstract class ICurve : ScriptableObject {
   public float min;
   public float max;
 
-  public Vector3 offset;
+  public Vector3 offset = new Vector3();
 
   public Quaternion rotation = new Quaternion();
 
