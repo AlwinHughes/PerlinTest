@@ -23,7 +23,7 @@ public class Tiling3DCon : INoiseCon, IAnimate {
   }
 
 
-  public override void sendNoiseToViewer() {
+  protected override void sendNoiseToViewer() {
     NoiseStore ns = new NoiseStore(new int[] {noise_con_set.x_res, noise_con_set.y_res});
 
     float x_scale = noise_con_set.getXScale() / noise_con_set.x_res;

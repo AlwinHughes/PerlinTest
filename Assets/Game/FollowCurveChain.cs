@@ -5,6 +5,7 @@ using UnityEngine;
 public class FollowCurveChain : MonoBehaviour {
 
 
+
   public bool spin_camer = true;
   [Range(0f, 100f)]
   public float spin_speed;
@@ -12,14 +13,15 @@ public class FollowCurveChain : MonoBehaviour {
 
 
   [Range(-10f, 10f)]
-  public float t_offset = 0f;
-  private float t = 0f;
+  public double t_offset = 0f;
+  private double t = 0f;
   [Range(-10f, 10f)]
   public float speed;
 
   public CurveChain chain;
 
-  void Start() { }
+  void Start() {
+  }
 
   void Update() {
     transform.position = chain.position(t);

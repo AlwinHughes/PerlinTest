@@ -8,6 +8,9 @@ public class TunnelEditor : Editor {
   Editor[] curve_editors;
   bool[] curve_foldouts;
 
+  Editor[] curve_noise_editors;
+  bool[] curve_noise_foldouts;
+
   Editor tunnel_editor;
   bool tunnel_foldout;
 
@@ -25,9 +28,18 @@ public class TunnelEditor : Editor {
 
       }
 
-      for(int i = 0; i < t.tunnel_settings.chain.getLength(); i++) {
-        DrawSettingsEditor(t.tunnel_settings.noise_settings[i], t.onSettingsChange, ref curve_foldouts[i], ref curve_editors[i]);
+      if(curve_noise_editors == null || curve_noise_editors.Length != t.tunnel_settings.chain.getLength()) {
+        curve_noise_editors = new Editor[t.tunnel_settings.chain.getLength()];
+        curve_noise_foldouts = new bool[t.tunnel_settings.chain.getLength()];
       }
+
+
+      for(int i = 0; i < t.tunnel_settings.chain.getLength(); i++) {
+        DrawSettingsEditor(t.tunnel_settings.noise_settings[i], t.onSettingsChange, ref curve_noise_foldouts[i], ref curve_noise_editors[i]);
+        DrawSettingsEditor(t.tunnel_settings.chain.getCurve(i), t.onSettingsChange, ref curve_foldouts[i], ref curve_editors[i]);
+      }
+
+
     }
 
   }

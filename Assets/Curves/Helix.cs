@@ -5,11 +5,11 @@ using UnityEngine;
 [Serializable]
 public class Helix : ICurve {
 
-  [Range(0f,20f)]
+  [Range(-20f,20f)]
   public float a;
-  [Range(0f,20f)]
+  [Range(-20f,20f)]
   public float b;
-  [Range(0f,20f)]
+  [Range(-20f,20f)]
   public float h;
 
   public Helix() {

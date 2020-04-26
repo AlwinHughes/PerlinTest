@@ -10,4 +10,6 @@ public class TunnelSettings : ScriptableObject {
   [SerializeField]
   public NoiseControlerSettings[] noise_settings;
 
+  public float radial_offset;
+
 }

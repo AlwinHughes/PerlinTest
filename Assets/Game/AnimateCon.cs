@@ -22,7 +22,7 @@ public class AnimateCon : MonoBehaviour {
   void Update() {
     if(anim_con != null) {
       anim_con.setParam(anim_con.getParam() + Time.deltaTime * speed);
-      con.sendNoiseToViewer();
+      con.onSettingsChanged();
 
     }
   }

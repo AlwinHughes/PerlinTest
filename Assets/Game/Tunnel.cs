@@ -24,6 +24,8 @@ public class Tunnel : MonoBehaviour {
 
   private void createTunnel() {
     Debug.Log("create tunnel");
+
+    tunnel_settings.chain.align();
     if(curve_objects == null || curve_objects.Length != tunnel_settings.chain.getLength()) {
       curve_objects = new GameObject[tunnel_settings.chain.getLength()];
     }
@@ -35,42 +37,38 @@ public class Tunnel : MonoBehaviour {
       CurveViewer cv = curve_objects[i].AddComponent<CurveViewer>();
 
       cv.curve = tunnel_settings.chain.getCurve(i);
+      cv.r_offset = tunnel_settings.radial_offset;
 
-      INoiseCon nc = curve_objects[i].AddComponent<TileingCon3>();
+      INoiseCon nc = curve_objects[i].AddComponent<INoiseCon>();
 
       nc.noise_con_set = tunnel_settings.noise_settings[i];
 
-      nc.sendNoiseToViewer();
+      nc.onSettingsChanged();
 
     }
 
   }
 
-  private void drawTunnel() {
+  private void updateTunnel() {
     Debug.Log("draw tunnel");
-    /*
-    if(curve_objects == null || curve_objects.Length != tunnel_settings.chain.getLength()) {
-      curve_objects = new GameObject[tunnel_settings.chain.getLength()];
-    }
-
+      
+    tunnel_settings.chain.align();
     for(int i = 0; i < tunnel_settings.chain.getLength(); i++) {
-      
 
-      curve_objects[i] = new GameObject("curve");
-      CurveViewer cv = curve_objects[i].AddComponent<CurveViewer>();
+      CurveViewer cv = curve_objects[i].GetComponent<CurveViewer>();
       cv.curve = tunnel_settings.chain.getCurve(i);
-      INoiseCon nc = curve_objects[i].AddComponent<TileingCon3>();
-      nc.noise_con_set = tunnel_settings.noise_settings[i];
-      
-      Debug.Log("is null? " + nc.noise_con_set == null);
+      cv.r_offset = tunnel_settings.radial_offset;
 
+      INoiseCon nc = curve_objects[i].GetComponent<INoiseCon>();
+      nc.noise_con_set = tunnel_settings.noise_settings[i];
+      nc.onSettingsChanged();
     }
-    */
+
 
   }
 
   public void onSettingsChange() {
-    drawTunnel();
+    updateTunnel();
   }
 
 }

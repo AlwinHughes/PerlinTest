@@ -17,7 +17,7 @@ public class TileingCon3 : INoiseCon {
     sendNoiseToViewer();
   }
 
-  public override void sendNoiseToViewer() {
+  protected override void sendNoiseToViewer() {
 
 
     ///Debug.Log("send to viewer");

@@ -25,11 +25,11 @@ public class CurveChain : ScriptableObject {
     curves.Add(c);
   }
 
-  public Vector3 position(float t) {
-    float acc = 0f;
+  public Vector3 position(double t) {
+    double acc = 0d;
     for(int i = 0; i < curves.Count; i++) {
       if(t > curves[i].min && t < acc + curves[i].max) {
-        return curves[i].position(t - acc);
+        return curves[i].position((float) (t - acc));
       }
       acc += curves[i].max;
     }
@@ -37,15 +37,14 @@ public class CurveChain : ScriptableObject {
     return new Vector3();
   }
 
-  public Vector3 tangent(float t) {
-    float acc = 0f;
+  public Vector3 tangent(double t) {
+    double acc = 0d;
     for(int i = 0; i < curves.Count; i++) {
       if(t > curves[i].min && t < acc + curves[i].max) {
-        return curves[i].tangent(t - acc);
+        return curves[i].tangent((float) (t - acc));
       }
       acc += curves[i].max;
     }
-
     //after the end of the curve
     return new Vector3();
   }
