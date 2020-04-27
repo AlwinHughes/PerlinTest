@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207be46b7e531951894719b28252403e, type: 3}
   m_Name: tunnel_4
   m_EditorClassIdentifier: 
-  chain: {fileID: 0}
-  noise_settings: []
-  radial_offset: 0
+  chain: {fileID: 11400000, guid: ae6d71c40b8d191fa809eadc42194eb1, type: 2}
+  noise_settings:
+  - {fileID: 11400000, guid: 75c859cf8ca6fe07fbc08aacc280e612, type: 2}
+  - {fileID: 11400000, guid: 75c859cf8ca6fe07fbc08aacc280e612, type: 2}
+  - {fileID: 11400000, guid: 75c859cf8ca6fe07fbc08aacc280e612, type: 2}
+  - {fileID: 11400000, guid: 75c859cf8ca6fe07fbc08aacc280e612, type: 2}
+  - {fileID: 11400000, guid: 75c859cf8ca6fe07fbc08aacc280e612, type: 2}
+  - {fileID: 11400000, guid: 75c859cf8ca6fe07fbc08aacc280e612, type: 2}
+  radial_offset: 1

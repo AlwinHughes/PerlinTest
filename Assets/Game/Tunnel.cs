@@ -25,7 +25,7 @@ public class Tunnel : MonoBehaviour {
   private void createTunnel() {
     Debug.Log("create tunnel");
 
-    tunnel_settings.chain.align();
+    tunnel_settings.chain.align(true);
     if(curve_objects == null || curve_objects.Length != tunnel_settings.chain.getLength()) {
       curve_objects = new GameObject[tunnel_settings.chain.getLength()];
     }
@@ -52,7 +52,7 @@ public class Tunnel : MonoBehaviour {
   private void updateTunnel() {
     Debug.Log("draw tunnel");
       
-    tunnel_settings.chain.align();
+    tunnel_settings.chain.align(true);
     for(int i = 0; i < tunnel_settings.chain.getLength(); i++) {
 
       CurveViewer cv = curve_objects[i].GetComponent<CurveViewer>();

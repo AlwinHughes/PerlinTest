@@ -9,6 +9,10 @@ public abstract class ICurve : ScriptableObject {
   public float min;
   public float max;
 
+  //the angle between the last curve's end normal and 
+  //this curve's first normal
+  public float normal_angle;
+
   public Vector3 offset = new Vector3();
 
   public Quaternion rotation = new Quaternion();

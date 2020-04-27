@@ -5,12 +5,15 @@ using UnityEditor;
 [CustomEditor(typeof(CylinderNoiseViewer))]
 public class CylinderNoiseViewerEditor : Editor {
 
+  Editor noise_editor;
+  bool noise_foldout = true;
+
   public override void OnInspectorGUI() {
     DrawDefaultInspector();
 
     CylinderNoiseViewer nv = (CylinderNoiseViewer) target;
 
-    DrawSettingsEditor(nv.controller.noise_con_set, nv.controller.onSettingsChanged, ref nv.controller.fold_out, ref nv.controller.editor);
+    DrawSettingsEditor(nv.controller.noise_con_set, nv.controller.onSettingsChanged, ref noise_foldout, ref noise_editor);
 
     if(GUILayout.Button("refreshNoise")){
       nv.refreshNoise();

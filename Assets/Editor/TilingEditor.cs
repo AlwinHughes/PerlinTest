@@ -2,19 +2,18 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(HelixViewer))]
-public class HelixViewerEditor : Editor {
+[CustomEditor(typeof(TilingCon))]
+public class TilingEditor :Editor {
+
+  Editor editor;
+  bool fold_out;
 
   public override void OnInspectorGUI() {
     DrawDefaultInspector();
 
-    HelixViewer nv = (HelixViewer) target;
+    TilingCon tc = (TilingCon) target;
 
-    DrawSettingsEditor(nv.controller.noise_con_set, nv.controller.onSettingsChanged, ref nv.controller.fold_out, ref nv.controller.editor);
-
-    if(GUILayout.Button("refreshNoise")){
-      nv.refreshNoise();
-    }
+    DrawSettingsEditor((ScriptableObject) tc.generator, tc.onSettingsChanged, ref fold_out, ref editor);
 
   }
 
@@ -41,5 +40,4 @@ public class HelixViewerEditor : Editor {
       }
     }
   }
-
 }

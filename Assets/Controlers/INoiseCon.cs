@@ -1,11 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEditor;
 
 public abstract class INoiseCon : MonoBehaviour {
-
-  public bool fold_out = true;
-  public Editor editor;
 
   [SerializeField]
   public NoiseGenerator generator;

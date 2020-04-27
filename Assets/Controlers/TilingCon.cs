@@ -1,11 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEditor;
-
 
 public class TilingCon : INoiseCon {
-
-
 
   public override void OnValidate() {
 

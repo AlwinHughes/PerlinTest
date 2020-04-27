@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: elipse_turn_90_wide
   m_EditorClassIdentifier: 
   min: 0
-  max: 3.1415927
-  offset: {x: 0, y: 0, z: 0}
-  rotation: {x: 0, y: 0, z: 0, w: 0}
+  max: 1.5707964
+  offset: {x: 2.0005927, y: 5.4551, z: -4.9999995}
+  rotation: {x: 0, y: 0.0014780717, z: 0.91451293, w: 0.40455392}
   loop: 0
-  a: 1
-  b: 1
+  a: 4
+  b: 4

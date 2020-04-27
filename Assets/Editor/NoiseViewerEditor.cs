@@ -2,15 +2,28 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(TilingCon))]
-public class TilingEditor :Editor {
+[CustomEditor(typeof(GridNoiseViewer))]
+public class NoiseViewerEditor : Editor {
+
+  /*
+  private bool ns_fold_out = true;
+  private Editor ns_editor;
+  */
+
+
+  Editor noise_editor;
+  bool noise_foldout = true;
 
   public override void OnInspectorGUI() {
     DrawDefaultInspector();
 
-    TilingCon tc = (TilingCon) target;
+    GridNoiseViewer nv = (GridNoiseViewer) target;
 
-    DrawSettingsEditor((ScriptableObject) tc.generator, tc.onSettingsChanged, ref tc.fold_out, ref tc.editor);
+    DrawSettingsEditor(nv.controller.noise_con_set, nv.controller.onSettingsChanged, ref noise_foldout, ref noise_editor);
+
+    if(GUILayout.Button("refreshNoise")){
+      nv.refreshNoise();
+    }
 
   }
 
@@ -37,4 +50,5 @@ public class TilingEditor :Editor {
       }
     }
   }
+
 }

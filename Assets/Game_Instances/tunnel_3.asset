@@ -15,3 +15,4 @@ MonoBehaviour:
   chain: {fileID: 11400000, guid: 4882f406400ac0a65aef030e29d2dc47, type: 2}
   noise_settings:
   - {fileID: 11400000, guid: 75c859cf8ca6fe07fbc08aacc280e612, type: 2}
+  radial_offset: 1

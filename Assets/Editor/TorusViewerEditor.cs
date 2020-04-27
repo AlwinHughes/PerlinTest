@@ -2,27 +2,24 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(CurveViewer))]
-public class CurveViewerEditor : Editor {
+[CustomEditor(typeof(TorusViewer))]
+public class TorusViewerEditor : Editor {
 
-  Editor curve_editor;
-  bool curve_foldout = true;
+  Editor editor;
+  bool fold_out;
 
   public override void OnInspectorGUI() {
     DrawDefaultInspector();
 
-    CurveViewer nv = (CurveViewer) target;
+    TorusViewer nv = (TorusViewer) target;
 
-    DrawSettingsEditor(nv.controller.noise_con_set, nv.controller.onSettingsChanged, ref nv.controller.fold_out, ref nv.controller.editor);
-
-    DrawSettingsEditor(nv.curve, nv.controller.onSettingsChanged, ref curve_foldout, ref curve_editor);
-
+    DrawSettingsEditor(nv.controller.noise_con_set, nv.controller.onSettingsChanged, ref fold_out, ref editor);
 
     if(GUILayout.Button("refreshNoise")){
       nv.refreshNoise();
     }
-  }
 
+  }
 
   void DrawSettingsEditor(Object settings, System.Action onSettingsUpdated, ref bool foldout, ref Editor editor)
   {
@@ -47,5 +44,4 @@ public class CurveViewerEditor : Editor {
       }
     }
   }
-
 }

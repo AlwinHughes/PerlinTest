@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: helix_3
   m_EditorClassIdentifier: 
   min: 0
-  max: 6.2831855
-  offset: {x: -2.4834309, y: 4.9790416, z: -4.269275}
-  rotation: {x: 0.04305594, y: -0.05212035, z: -0.6713813, w: 0.73802227}
+  max: 10
+  normal_angle: 0
+  offset: {x: -1.9530916, y: 6.0303726, z: -9.000929}
+  rotation: {x: -0.45084402, y: 0.5457585, z: -0.0016474623, w: 0.70631766}
   loop: 0
   a: 2.3
   b: 1

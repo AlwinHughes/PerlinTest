@@ -2,20 +2,18 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(GridNoiseViewer))]
-public class NoiseViewerEditor : Editor {
+[CustomEditor(typeof(HelixViewer))]
+public class HelixViewerEditor : Editor {
 
-  /*
-  private bool ns_fold_out = true;
-  private Editor ns_editor;
-  */
+  Editor noise_editor;
+  bool noise_foldout = true;
 
   public override void OnInspectorGUI() {
     DrawDefaultInspector();
 
-    GridNoiseViewer nv = (GridNoiseViewer) target;
+    HelixViewer nv = (HelixViewer) target;
 
-    DrawSettingsEditor(nv.controller.noise_con_set, nv.controller.onSettingsChanged, ref nv.controller.fold_out, ref nv.controller.editor);
+    DrawSettingsEditor(nv.controller.noise_con_set, nv.controller.onSettingsChanged, ref noise_foldout, ref noise_editor);
 
     if(GUILayout.Button("refreshNoise")){
       nv.refreshNoise();

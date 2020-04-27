@@ -64,4 +64,38 @@ public class CurveChain : ScriptableObject {
     }
   }
 
+  public void align(bool align_normals) {
+
+    if(!align_normals) {
+      align();
+      return;
+    }
+
+    //Quaternion r = new Quaternion();;
+    for(int i = 1; i < curves.Count; i++) {
+
+      curves[i].offset = new Vector3(0,0,0);
+      curves[i].offset = curves[i-1].position(curves[i-1].max) - curves[i].position(curves[i].min);
+
+      curves[i].rotation = new Quaternion();
+
+      /*curves[i].rotation = Quaternion.FromToRotation(
+          curves[i].normal(curves[i].min),
+          curves[i-1].normal(curves[i-1].max)
+          )
+
+        * */ 
+      curves[i].rotation = Quaternion.FromToRotation(
+            curves[i].tangent(curves[i].min),
+            curves[i-1].tangent(curves[i-1].max)
+            );
+
+
+       // curves[i].rotation = Quaternion.AngleAxis(curves[i].normal_angle, curves[i].tangent(curves[i].min)) * curves[i].rotation;
+
+
+    }
+  }
+
+
 }
